@@ -70,7 +70,7 @@ OK: residuals appear as normally distributed (p = 0.394).
 check_model(model_shannon)
 ```
 
-![shannon-model-diagnostics](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/shannon-model-diagnostics.svg)
+![shannon-model-diagnostics](/pics/16s-shannon-model-diagnostics.svg)
 
 
 
@@ -168,7 +168,7 @@ plot(allEffects(model_shannon))
 
 
 
-![shannon-model-effects](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/shannon-model-effects.svg)
+![shannon-model-effects](/pics/16s-shannon-model-effects.svg)
 
 
 
@@ -236,9 +236,9 @@ plot(rpts, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
 plot(rpts, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
 ```
 
-![](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/shannon-repeatability-nest.svg)
+![](/pics/16s-shannon-repeatability-nest.svg)
 
-![shannon-repeatability-ID](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/shannon-repeatability-ID.svg)
+![shannon-repeatability-ID](/pics/16s-shannon-repeatability-ID.svg)
 
 ### Faith phylogenetic diversity
 
@@ -283,7 +283,7 @@ check_model(model_faith)
 
 
 
-![model-diagnostics-faith](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/faith-model-diagnostics.svg)
+![model-diagnostics-faith](/pics/16s-faith-model-diagnostics.svg)
 
 
 
@@ -378,7 +378,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 plot(allEffects(model_faith))
 ```
 
-![faith-model-effects](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/faith-model-effects.svg)
+![faith-model-effects](/pics/16s-faith-model-effects.svg)
 
 
 
@@ -448,9 +448,9 @@ plot(rpts2, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
 
 
 
-![](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/16S/model-results/faith-repeatability-nest.svg)
+![](/pics/16s-faith-repeatability-nest.svg)
 
-#### ![faith-repeatability-ID](/home/localadmin/microbiome-analysis/alpha-diversity/16S/model-results/faith-repeatability-ID.svg)
+![faith-repeatability-ID](/pics/16s-faith-repeatability-ID.svg)
 
 ------
 

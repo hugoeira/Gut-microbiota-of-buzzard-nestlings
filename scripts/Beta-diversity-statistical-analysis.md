@@ -96,11 +96,11 @@ model_BC <- readRDS("model_final.rds")
 plot(model_BC)
 ```
 
-![diagnostics1-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-diagnostics1-plot-16s.svg)
+![diagnostics1-plot-16s](/pics/BC-diagnostics1-plot-16s.svg)
 
-![diagnostics2-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-diagnostics2-plot-16s.svg)
+![diagnostics2-plot-16s](/pics/BC-diagnostics2-plot-16s.svg)
 
-![diagnostics3-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-diagnostics3-plot-16s.svg)
+![diagnostics3-plot-16s](/pics/BC-diagnostics3-plot-16s.svg)
 
 
 
@@ -111,7 +111,7 @@ pp_model_BC <-pp_check(model_BC, ndraws = 100)
 pp_model_final
 ```
 
-![pred-vs-obsv-distribution-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-pred-vs-obsv-distribution-16s.svg)
+![pred-vs-obsv-distribution-16s](/pics/BC-pred-vs-obsv-distribution-16s.svg)
 
 
 
@@ -172,7 +172,7 @@ plot1 + theme_minimal() + geom_vline(xintercept = 0, linetype="dotted", color="b
 
 
 
-![model-results-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-model-results-16s.svg)
+![model-results-16s](/pics/BC-model-results-16s.svg)
 
 
 
@@ -186,7 +186,7 @@ conditional_effects(model_BC) # all effect plots for BC_dissmilarity
 
 
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/BC-model-effects-all-16s.svg" alt="model-effects-all-16s" style="zoom:150%;" />
+<img src="/pics/BC-model-effects-all-16s.svg" alt="model-effects-all-16s" style="zoom:150%;" />
 
 
 
@@ -236,11 +236,11 @@ model_WU <- readRDS("model_WU.rds")
 plot(model_WU)
 ```
 
-![WU-diagnostics1-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-diagnostics1-plot-16s.svg)
+![WU-diagnostics1-plot-16s](/pics/WU-diagnostics1-plot-16s.svg)
 
-![WU-diagnostics2-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-diagnostics2-plot-16s.svg)
+![WU-diagnostics2-plot-16s](/pics/WU-diagnostics2-plot-16s.svg)
 
-![WU-diagnostics3-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-diagnostics3-plot-16s.svg)
+![WU-diagnostics3-plot-16s](/pics/WU-diagnostics3-plot-16s.svg)
 
 
 
@@ -253,7 +253,7 @@ pp_model_BC <-pp_check(model_WU, ndraws = 100)
 pp_model_WU
 ```
 
-![WU-pred-vs-obsv-distribution-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-pred-vs-obsv-distribution-16s.svg)
+![WU-pred-vs-obsv-distribution-16s](/pics/WU-pred-vs-obsv-distribution-16s.svg)
 
 ### 1.5 Model Summary 
 
@@ -306,7 +306,7 @@ plot1 <-mcmc_plot(model_WU, type = "intervals", prob = 0.95, pars= rownames(fixe
 plot1 + theme_minimal() + geom_vline(xintercept = 0, linetype="dotted", color="blue")
 ```
 
-![WU-model-results-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-model-results-16s.svg)
+![WU-model-results-16s](/pics/WU-model-results-16s.svg)
 
 ### 1.5 Plot model effects
 
@@ -318,7 +318,7 @@ conditional_effects(model_WU) # all effect plots for BC_dissmilarity
 
 
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/16S/model-results/WU-model-effects-all-16s.svg" alt="WU-model-effects-all-16s" style="zoom:150%;" />
+<img src="/pics/WU-model-effects-all-16s.svg" alt="WU-model-effects-all-16s" style="zoom:150%;" />
 
 ------
 

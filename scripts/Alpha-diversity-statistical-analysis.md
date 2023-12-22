@@ -532,7 +532,7 @@ Warning: Non-normality of residuals detected (p = 0.046). # residuals still not 
 check_model(model_shannon)# normality of residuals identified by visual inspection
 ```
 
-![shannon-model-diagnostics](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/shannon-model-diagnostics.svg)
+![shannon-model-diagnostics](/pics/28s-shannon-model-diagnostics.svg)
 
 
 
@@ -624,7 +624,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 plot(allEffects(model_shannon))
 ```
 
-![shannon-model-effects](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/shannon-model-effects.svg)
+![shannon-model-effects](/pics/28s-shannon-model-effects.svg)
 
 
 
@@ -693,9 +693,9 @@ plot(rpts, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
 plot(rpts, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
 ```
 
-![shannon-repeatability-nest](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/shannon-repeatability-nest.svg)
+![shannon-repeatability-nest](/pics/28s-shannon-repeatability-nest.svg)
 
-![shannon-repeatability-ID](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/shannon-repeatability-ID.svg)
+![shannon-repeatability-ID](/pics/28s-shannon-repeatability-ID.svg)
 
 
 
@@ -742,7 +742,7 @@ OK: residuals appear as normally distributed (p = 0.661).
 check_model(model_faith)
 ```
 
-![faith-model-diagnostics](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/faith-model-diagnostics.svg)
+![faith-model-diagnostics](/pics/28s-faith-model-diagnostics.svg)
 
 
 
@@ -884,7 +884,7 @@ teuto - south == 0  0.12503     0.12123    1.031    0.302
 plot(allEffects(model_faith))
 ```
 
-![faith-model-effects](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/faith-model-effects.svg)
+![faith-model-effects](/pics/28s-faith-model-effects.svg)
 
 
 
@@ -953,6 +953,6 @@ plot(rpts2, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
 
 
 
-![faith-repeatability-nest](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/faith-repeatability-nest.svg)
+![faith-repeatability-nest](/pics/28s-faith-repeatability-nest.svg)
 
-![faith-repeatability-ID](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/alpha-diversity/28S/concat_230_185/model-results/faith-repeatability-ID.svg)
+![faith-repeatability-ID](/pics/28s-faith-repeatability-ID.svg)

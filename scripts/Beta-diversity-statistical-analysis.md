@@ -577,9 +577,9 @@ model_WU <- readRDS("model_WU.rds")
 plot(model_WU)
 ```
 
-![WU-diagnostics1-plot-28s](/pics/model-results/WU-diagnostics1-plot-28s.svg)
+![WU-diagnostics1-plot-28s](/pics/WU-diagnostics1-plot-28s.svg)
 
-![WU-diagnostics2-plot-28s](/pics/model-results/WU-diagnostics2-plot-28s.svg)
+![WU-diagnostics2-plot-28s](/pics/WU-diagnostics2-plot-28s.svg)
 
 ![](/pics/WU-diagnostics3-plot-28s.svg)
 

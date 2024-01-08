@@ -401,7 +401,7 @@ plot(model_BC)
 
 ​![BC-diagnostics1-plot-28s](/pics/BC-diagnostics1-plot-28s.svg)![BC-diagnostics2-plot-28s](/pics/BC-diagnostics2-plot-28s.svg)
 
-![BC-diagnostics3-plot-28s](/pics/model-results/BC-diagnostics3-plot-28s.svg)
+![BC-diagnostics3-plot-28s](/pics/BC-diagnostics3-plot-28s.svg)
 
 #### 1.3.1. Compare distribution of response variable to distributions of predicted response variable values
 

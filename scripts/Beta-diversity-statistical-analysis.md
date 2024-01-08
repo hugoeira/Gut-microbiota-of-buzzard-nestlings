@@ -399,9 +399,9 @@ model_final <- readRDS("model_final.rds")
 plot(model_BC)
 ```
 
-​				![BC-diagnostics1-plot-28s](/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-diagnostics1-plot-28s.svg)![BC-diagnostics2-plot-28s](/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-diagnostics2-plot-28s.svg)
+​![BC-diagnostics1-plot-28s](/pics/BC-diagnostics1-plot-28s.svg)![BC-diagnostics2-plot-28s](/pics/BC-diagnostics2-plot-28s.svg)
 
-![BC-diagnostics3-plot-28s](/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-diagnostics3-plot-28s.svg)
+![BC-diagnostics3-plot-28s](/pics/model-results/BC-diagnostics3-plot-28s.svg)
 
 #### 1.3.1. Compare distribution of response variable to distributions of predicted response variable values
 
@@ -411,7 +411,7 @@ pp_model_BC <-pp_check(model_BC, ndraws = 50)
 pp_model_final
 ```
 
-![BC-pred-vs-obsv-distribution-28s](/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-pred-vs-obsv-distribution-28s.svg)
+![BC-pred-vs-obsv-distribution-28s](/pics/BC-pred-vs-obsv-distribution-28s.svg)
 
 
 
@@ -470,7 +470,7 @@ plot1 <-mcmc_plot(model_WU, type = "intervals", prob = 0.90, variable = c("b_age
 plot1 + theme_default() + geom_vline(xintercept = 0, linetype="dotted", color="black")
 ```
 
-![BC-model-results-28s](/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-model-results-28s.svg)
+![BC-model-results-28s](/pics/BC-model-results-28s.svg)
 
 
 
@@ -482,7 +482,7 @@ Depicts the range of predicted Bray-Curtis dissimilarity values, does not depict
 conditional_effects(model_BC) 
 ```
 
-<img src="/home/localadmin/microbiome-analysis/beta-diversity/28S/model-results/BC-model-effects-all-28s.svg" alt="BC-model-effects-all-28s" style="zoom:150%;" />
+<img src="/pics/BC-model-effects-all-28s.svg" alt="BC-model-effects-all-28s" style="zoom:150%;" />
 
 
 
@@ -577,11 +577,11 @@ model_WU <- readRDS("model_WU.rds")
 plot(model_WU)
 ```
 
-![WU-diagnostics1-plot-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-diagnostics1-plot-28s.svg)
+![WU-diagnostics1-plot-28s](/pics/model-results/WU-diagnostics1-plot-28s.svg)
 
-![WU-diagnostics2-plot-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-diagnostics2-plot-28s.svg)
+![WU-diagnostics2-plot-28s](/pics/model-results/WU-diagnostics2-plot-28s.svg)
 
-![](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-diagnostics3-plot-28s.svg)
+![](/pics/WU-diagnostics3-plot-28s.svg)
 
 
 
@@ -593,7 +593,7 @@ pp_model_BC <-pp_check(model_WU, ndraws = 50)
 pp_model_WU
 ```
 
-![WU-pred-vs-obsv-distribution-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-pred-vs-obsv-distribution-28s.svg)
+![WU-pred-vs-obsv-distribution-28s](/pics/WU-pred-vs-obsv-distribution-28s.svg)
 
 
 
@@ -653,7 +653,7 @@ plot1 <-mcmc_plot(model_WU, type = "intervals", prob = 0.90, variable = c("b_age
 plot1 + theme_default() + geom_vline(xintercept = 0, linetype="dotted", color="black")
 ```
 
-![WU-model-results-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-model-results-28s.svg)
+![WU-model-results-28s](/pics/WU-model-results-28s.svg)
 
 
 
@@ -665,4 +665,4 @@ Depicts the range of predicted Bray-Curtis dissimilarity values, does not depict
 conditional_effects(model_WU) 
 ```
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/beta-diversity/28S/model-results/WU-model-effects-all-28s.svg" alt="WU-model-effects-all-28s" style="zoom:150%;" />
+<img src="/pics/WU-model-effects-all-28s.svg" alt="WU-model-effects-all-28s" style="zoom:150%;" />

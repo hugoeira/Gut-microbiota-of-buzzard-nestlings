@@ -29,7 +29,7 @@ metadata$std_bci <- scale(metadata$bci_two) # scale bci values
 metadata$age_days <- buteo_age(df = metadata, wing = "wing", sex = TRUE, unit = c("cm"), .plot = F, decimals = 2,.show_model = T)$fit
 metadata$std_age <- scale(metadata$age_days) # scale age values
 
-saveRDS(metadata,"metadata-rarefied.rds")
+saveRDS(metadata,"16S_metadata.rds")
 ```
 
 
@@ -472,7 +472,7 @@ metadata$std_bci <- scale(metadata$bci_two) # scale bci values
 metadata$age_days <- buteo_age(df = metadata, wing = "wing", sex = TRUE, unit = c("cm"), .plot = F, decimals = 2,.show_model = T)$fit
 metadata$std_age <- scale(metadata$age_days) # scale age values
 
-saveRDS(metadata,"metadata-rarefied.rds")
+saveRDS(metadata,"28S_metadata.rds")
 ```
 
 

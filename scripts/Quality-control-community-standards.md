@@ -2,19 +2,7 @@
 
 
 
-
-
-##  Table of Contents
-
-[TOC]
-
-------
-
-
-
-
-
-# A) 16S rRNA workflow
+## A) 16S rRNA workflow
 
 
 
@@ -90,7 +78,7 @@ qiime taxa barplot --i-table mock-observed.qza --i-taxonomy taxonomy.qza --m-met
 
 
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/mock-comparisons/16s/mock-bar-plot-16s.svg" alt="mock-bar-plot-16s"  />
+<img src="/pics/mock-bar-plot-16s.svg" alt="mock-bar-plot-16s"  />
 
 **C001 and C003** are replicates of the ZymoBIOMICS Microbial Community Standard (D6300) used for validation of the extraction method.
 
@@ -146,7 +134,7 @@ These are used to calculate TAR and TDR as:
 
 
 
-![per-level-accuracy-plot-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/mock-comparisons/16s/per-level-accuracy-plot-16s.svg)
+![per-level-accuracy-plot-16s](/pics/per-level-accuracy-plot-16s.svg)
 
 
 
@@ -183,7 +171,7 @@ These are used to calculate TAR and TDR as:
 
 
 
-![linear-regression-obsvsexpt-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/mock-comparisons/16s/linear-regression-obsvsexpt-16s.svg)
+![linear-regression-obsvsexpt-16s](/pics/linear-regression-obsvsexpt-16s.svg)
 
 ### 5.2 False positives: misclassifications
 
@@ -225,9 +213,7 @@ The taxonomy classifier is only able to accurate assigned taxonomy to the genus 
 
 
 
-
-
-# B) 28S rRNA workflow
+## B) 28S rRNA workflow
 
 
 
@@ -299,7 +285,7 @@ qiime feature-table filter-samples --i-table mock-observed.qza --p-min-frequency
 qiime taxa barplot --i-table mock-observed.qza --i-taxonomy taxonomy.qza --m-metadata-file buzzard_meta.tsv --o-visualization mock-observed-bar-plot.qzv
 ```
 
-![mock-bar-plot-28s](/home/localadmin/microbiome-analysis/mock-comparisons/28s/mock-bar-plot-28s.svg)
+![mock-bar-plot-28s](/pics/mock-bar-plot-28s.svg)
 
 
 
@@ -357,7 +343,7 @@ These are used to calculate TAR and TDR as:
 
 
 
-![per-level-accuracy-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/mock-comparisons/28s/per-level-accuracy-28s.svg)
+![per-level-accuracy-28s](/pics/per-level-accuracy-28s.svg)
 
 
 
@@ -396,7 +382,7 @@ These are used to calculate TAR and TDR as:
 
 
 
-![](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/mock-comparisons/28s/linear-regression-obsvsexpt-28s.svg)
+![](/pics/linear-regression-obsvsexpt-28s.svg)
 
 
 

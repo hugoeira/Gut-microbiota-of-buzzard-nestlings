@@ -20,7 +20,7 @@ library(bayesplot)
 library(ggplot2)
 
 #Read in the data
-data.dyad <- readRDS("data_dyad.rds")
+data.dyad <- readRDS("16S_data_dyad.rds")
 ```
 
 Data-dyad is composed of 26,335 pairwise comparisons.
@@ -327,7 +327,7 @@ library(bayesplot)
 library(ggplot2)
 
 #Read in the data
-data.dyad <- readRDS("data_dyad.rds")
+data.dyad <- readRDS("28S_data_dyad.rds")
 ```
 
 

@@ -127,8 +127,7 @@ volc_asv
 ```
 
 
-
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/volcano-asv-16s.svg" alt="volcano-asv-16s" style="zoom:80%;" />
+<img src="/pics/volcano-asv-16s.svg" alt="volcano-asv-16s" style="zoom:80%;" />
 
 
 
@@ -169,7 +168,7 @@ fig_age_asv
 
 
 
-![log-fold-change-age-asv-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/log-fold-change-age-asv-16s.svg)
+![log-fold-change-age-asv-16s](/pics/log-fold-change-age-asv-16s.svg)
 
 ```R
 # Pseudo-count sensitivity analysis for age
@@ -197,7 +196,7 @@ fig_sens_asv_age
 
 
 
-![sensitivity-age-asv-16s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/sensitivity-age-asv-16s.svg)
+![sensitivity-age-asv-16s](/pics/sensitivity-age-asv-16s.svg)
 
 **For the co-variate of age, no outlying sensitivity scores are observed. All significant taxa have low sensitivity scores.**
 
@@ -382,11 +381,11 @@ p2
 
 #### 5.1 DAA functional prediction Wilcoxon rank test
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/functional-pred-wilcoxon1-16s.svg" alt="functional-pred-wilcoxon1-16s" style="zoom: 200%;" />
+<img src="/pics/functional-pred-wilcoxon1-16s.svg" alt="functional-pred-wilcoxon1-16s" style="zoom: 200%;" />
 
 #### 5.2. DAA functional prediction Welch t test
 
-<img src="/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/functional-pred-welch-16s.svg" alt="functional-pred-welch-16s" style="zoom: 200%;" />
+<img src="/pics/functional-pred-welch-16s.svg" alt="functional-pred-welch-16s" style="zoom: 200%;" />
 
 ------
 

@@ -507,7 +507,7 @@ volc_asv
 
 
 
-![volcano-asv-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/volcano-asv-28s.svg)
+![volcano-asv-28s](/pics/volcano-asv-28s.svg)
 
 
 
@@ -540,7 +540,7 @@ fig_sens_asv_habitat
 
 
 
-![sensitivity-age-asv-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/sensitivity-habitat-asv-28s.svg)
+![sensitivity-age-asv-28s](/pics/sensitivity-habitat-asv-28s.svg)
 
 **For the co-variate of habitat (south), no outlying sensitivity scores are observed. All significant taxa have low sensitivity scores.**
 
@@ -587,7 +587,7 @@ fig_habitat
 
 
 
-![log-fold-change-age-asv-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/log-fold-change-habitat-asv-28s.svg)
+![log-fold-change-age-asv-28s](/pics/log-fold-change-habitat-asv-28s.svg)
 
 
 
@@ -633,8 +633,7 @@ fig_pair = df_fig_pair %>%
 fig_pair
 ```
 
-![log-fold-pairwie-change-habitat-asv-28s](/home/localadmin/MEGA/PhD/Buzzards/microbiome-analysis/DAA/results/log-fold-pairwise-change-habitat-asv-28s.svg)
-
+![log-fold-pairwie-change-habitat-asv-28s](/pics/log-fold-pairwise-change-habitat-asv-28s.svg)
 
 
 

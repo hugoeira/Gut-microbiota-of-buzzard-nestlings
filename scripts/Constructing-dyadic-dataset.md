@@ -6,19 +6,7 @@ Based on the workflow described here  https://github.com/nuorenarra/Analysing-dy
 
 
 
-## Table of Contents
-
-[TOC]
-
-
-
-------
-
-
-
-
-
-# A) 16S rRNA dyadic data set
+## A) 16S rRNA dyadic data set
 
 
 
@@ -86,7 +74,7 @@ readcount(ps_css) # number of reads per sample
 
 # Save phyloseq object as rds file for dyatic data construction
 
-saveRDS(ps_css,"phyloseq_css.rds")
+saveRDS(ps_css,"16S_phyloseq_css.rds")
 
 ```
 
@@ -102,7 +90,7 @@ library(tidyverse)
 library(janitor)
 
 #Read in microbiome data and associated sample data in phyloseq format.
-micdata<-readRDS( "phyloseq_css.rds")
+micdata<-readRDS( "16S_phyloseq_css.rds")
 
 #See:
 micdata
@@ -737,7 +725,7 @@ readcount(ps_css) # number of reads per sample
 
 
 # Save phyloseq object as rds file for dyatic data construction
-saveRDS(ps_css,"phyloseq_css.rds")
+saveRDS(ps_css,"28S_phyloseq_css.rds")
 
 ```
 
@@ -753,7 +741,7 @@ library(tidyverse)
 library(janitor)
 
 #Read in microbiome data and associated sample data in phyloseq format.
-micdata<-readRDS( "phyloseq_css.rds")
+micdata<-readRDS( "28S_phyloseq_css.rds")
 
 # remove sample that seems to be outlier. Distance measures always equal to 1 for this sample
 

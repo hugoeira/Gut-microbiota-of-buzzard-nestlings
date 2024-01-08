@@ -1,22 +1,10 @@
 # Beta diversity statistical analysis
 
 
-
 Based on the workflow described here  https://github.com/nuorenarra/Analysing-dyadic-data-with-brms 
 
 
-
-## Table of Contents
-
-[TOC]
-
-------
-
-
-
-
-
-# A) 16S rRNA beta diversity statistical analysis
+## A) 16S rRNA beta diversity statistical analysis
 
 
 
@@ -323,10 +311,7 @@ conditional_effects(model_WU) # all effect plots for BC_dissmilarity
 ------
 
 
-
-
-
-# B) 28S rRNA beta diversity statistical analysis
+## B) 28S rRNA beta diversity statistical analysis
 
 
 

@@ -25,7 +25,7 @@ Composition of comunity standard available here:  https://www.zymoresearch.de/co
 For the purpose of this analysis, eukaryote taxa were excluded from the community standards' composition.
 
 ```python
-biom convert -i mock_expected.tsv -o mock-expected.biom --table-type="OTU table" --to-hdf5
+biom convert -i 16S_mock_expected.tsv -o mock-expected.biom --table-type="OTU table" --to-hdf5
 
 qiime tools import --input-path mock-expected.biom --type 'FeatureTable[RelativeFrequency]' --input-format BIOMV210Format --output-path mock-expected.qza
 
@@ -40,7 +40,7 @@ qiime tools import --input-path mock-expected.biom --type 'FeatureTable[Relative
 ### 2.1 Import results after decontam pipeline
 
 ```python
-qiime tools import --input-path table-nocontam.biom --type 'FeatureTable[Frequency]' --input-format BIOMV100Format --output-path table-nocontam.qza
+qiime tools import --input-path 16S_table-nocontam.biom --type 'FeatureTable[Frequency]' --input-format BIOMV100Format --output-path table-nocontam.qza
 ```
 
 
@@ -234,7 +234,7 @@ conda activate qiime2-2022.11
 Composition of comunity standard available here:  https://www.zymoresearch.de/collections/zymobiomics-microbial-community-standards/products/zymobiomics-microbial-community-standard
 
 ```python
-biom convert -i mock_expected.tsv -o mock-expected.biom --table-type="OTU table" --to-hdf5
+biom convert -i 28S_mock_expected.tsv -o mock-expected.biom --table-type="OTU table" --to-hdf5
 
 qiime tools import --input-path mock-expected.biom --type 'FeatureTable[RelativeFrequency]' --input-format BIOMV210Format --output-path mock-expected.qza
 
@@ -249,7 +249,7 @@ qiime tools import --input-path mock-expected.biom --type 'FeatureTable[Relative
 ### 2.1 Import results after decontam pipeline
 
 ```python
-qiime tools import --input-path table-nocontam.biom --type 'FeatureTable[Frequency]' --input-format BIOMV100Format --output-path table-nocontam.qza
+qiime tools import --input-path 28S_table-nocontam.biom --type 'FeatureTable[Frequency]' --input-format BIOMV100Format --output-path table-nocontam.qza
 ```
 
 

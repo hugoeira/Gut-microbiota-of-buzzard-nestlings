@@ -6,17 +6,7 @@ Pipeline adapted from https://bioconductor.org/packages/release/bioc/vignettes/A
 
 
 
-## Table of Contents
-
-[TOC]
-
-------
-
-
-
-
-
-# A) DAA 16s rRNA
+## A) DAA 16s rRNA
 
 
 
@@ -35,7 +25,7 @@ library(ggrepel)
 # Import data from qiime2 and create a phyloseq object
 
 ps <- qza_to_phyloseq(
-  features="unrarefied-table.qza",
+  features="beta-table.qza",
   tree="rooted-tree.qza",
   taxonomy = "taxonomy.qza",
   metadata = "metadata.tsv")
@@ -69,7 +59,7 @@ metadata$shannon_entropy <- as.numeric(metadata$shannon_entropy)
 ps <- phyloseq(asv, taxonomy, metadata, tree)
 
 # Save edited ps object as rds
-saveRDS(ps,"phyloseq.rds")
+saveRDS(ps,"16S_phyloseq.rds")
 
 
 ```
@@ -84,6 +74,7 @@ saveRDS(ps,"phyloseq.rds")
 # Diferential abundace analysis on final model. Genus level
 # age + bci + rank + sex + year + habitat + lbinom
 
+ps <- readRDS("16S_phyloseq.rds")
 
 set.seed(123)
 output_final = ancombc2(data = ps, assay_name = "counts", tax_level = NULL,
@@ -524,9 +515,7 @@ p2
 
 
 
-
-
-# B) DAA 28s rRNA
+## B) DAA 28s rRNA
 
 
 
@@ -536,7 +525,7 @@ p2
 # Import data from qiime2 and create a phyloseq object
 
 ps <- qza_to_phyloseq(
-  features="unrarefied-table.qza",
+  features="beta-table.qza",
   tree=".rooted-tree.qza",
   taxonomy = "taxonomy.qza",
   metadata = "metadata.tsv")
@@ -570,7 +559,7 @@ metadata$shannon_entropy <- as.numeric(metadata$shannon_entropy)
 ps <- phyloseq(asv, taxonomy, metadata, tree)
 
 # Save edited ps object as rds
-saveRDS(ps,"phyloseq.rds")
+saveRDS(ps,"28S_phyloseq.rds")
 
 
 ```
@@ -587,6 +576,7 @@ saveRDS(ps,"phyloseq.rds")
 # Diferential abundace analysis on final model. Genus level
 # age + bci + rank + sex + year + habitat + lbinom
 
+ps <- readRDS("28S_phyloseq.rds")
 
 set.seed(123)
 output_final = ancombc2(data = ps, assay_name = "counts", tax_level = NULL,

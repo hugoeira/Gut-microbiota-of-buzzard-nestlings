@@ -1,21 +1,7 @@
 # Alpha diversity statistical analysis
 
 
-
-
-
-## Table of Contents
-
-[TOC]
-
-------
-
-
-
-
-
-# A) 16S rRNA alpha diversity statistical analysis
-
+## A) 16S rRNA alpha diversity statistical analysis
 
 
 ### 1. Shannon diversity Index
@@ -31,6 +17,7 @@ library(car)
 library(effects)
 library(ggpubr)
 library(jtools)
+library(raptoR)
 
 #Load dataset
 metadata <- readRDS("metadata-rarefied.rds")
@@ -456,9 +443,7 @@ plot(rpts2, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
 
 
 
-
-
-# B) 28S rRNA alpha diversity statistical analysis
+## B) 28S rRNA alpha diversity statistical analysis
 
 
 

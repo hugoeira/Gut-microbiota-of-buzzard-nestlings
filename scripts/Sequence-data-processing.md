@@ -2,19 +2,7 @@
 
 
 
-
-
-## Table of Contents
-
-[TOC]
-
-------
-
-
-
-
-
-# A) 16s rRNA sequence data processing
+## A) 16s rRNA sequence data processing
 
 
 
@@ -60,7 +48,7 @@ qiime demux summarize --i-data demux-paired-end.qza --o-visualization demux-qual
 
 ### 3.2. Quality plots
 
-![16s-quality-plots](/home/localadmin/microbiome-analysis/sequence-processing/16S/16s-quality-plots.svg)
+![16s-quality-plots](/pics/16s-quality-plots.svg)
 
 
 
@@ -273,7 +261,7 @@ qiime diversity alpha-rarefaction --i-table filtered-table.qza --i-phylogeny roo
 
 
 
-![16s-rarefaction-plots](/home/localadmin/microbiome-analysis/sequence-processing/16S/16s-rarefaction-plots.svg)
+![16s-rarefaction-plots](/pics/16s-rarefaction-plots.svg)
 
 
 
@@ -425,7 +413,7 @@ qiime feature-table summarize --i-table beta-table.qza --o-visualization beta-ta
 
 
 
-# B) 28s rRNA sequence data processing
+## B) 28s rRNA sequence data processing
 
 
 
@@ -471,7 +459,7 @@ qiime demux summarize --i-data demux-paired-end.qza --o-visualization demux-qual
 
 ### 3.2 Quality plots
 
-![28s-quality-plots](/home/localadmin/microbiome-analysis/sequence-processing/28S/28s-quality-plots.svg)
+![28s-quality-plots](/pics/28s-quality-plots.svg)
 
 
 
@@ -528,7 +516,7 @@ qiime feature-table summarize --i-table table.qza --o-visualization table.qzv --
 
 #### 6.1.2. Primer trimmed quality plots
 
-![28s-primer-trimmed-quality-plots](/home/localadmin/microbiome-analysis/sequence-processing/28S/28s-primer-trimmed-quality-plots.svg)
+![28s-primer-trimmed-quality-plots](/pics/28s-primer-trimmed-quality-plots.svg)
 
 
 
@@ -717,11 +705,11 @@ qiime diversity alpha-rarefaction --i-table filtered-table.qza --i-phylogeny roo
 
 #### 21.1 Rarefaction plots (sampling depth 20,000)
 
-![28s-rarefaction-plots](/home/localadmin/microbiome-analysis/sequence-processing/28S/28s-rarefaction-plots.svg)
+![28s-rarefaction-plots](/pics/28s-rarefaction-plots.svg)
 
 #### 21.1 Rarefaction plots (sampling depth 2000)
 
-![28s-rarefaction-plots-2000](/home/localadmin/microbiome-analysis/sequence-processing/28S/28s-rarefaction-plots-2000.svg)
+![28s-rarefaction-plots-2000](/pics/28s-rarefaction-plots-2000.svg)
 
 
 

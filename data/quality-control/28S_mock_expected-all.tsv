@@ -1,0 +1,11 @@
+#OTU ID	C001	C002	C003	C004
+d__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Pseudomonadales; f__Pseudomonadaceae; g__Pseudomonas; s__Pseudomonas_aeruginosa	0.042	0.042	0.042	0.042
+d__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Enterobacterales; f__Enterobacteriaceae; g__Escherichia-Shigella; s__Escherichia_coli	0.101	0.101	0.101	0.101
+d__Bacteria; p__Proteobacteria; c__Gammaproteobacteria; o__Enterobacterales; f__Enterobacteriaceae; g__Salmonella; s__Salmonella_enterica	0.104	0.104	0.104	0.104
+d__Bacteria; p__Firmicutes; c__Bacilli; o__Lactobacillales; f__Lactobacillaceae; g__Limosilactobacillus; s__Lactobacillus_fermentum	0.184	0.184	0.184	0.184
+d__Bacteria; p__Firmicutes; c__Bacilli; o__Lactobacillales; f__Enterococcaceae; g__Enterococcus; s__Enterococcus_faecalis	0.099	0.099	0.099	0.099
+d__Bacteria; p__Firmicutes; c__Bacilli; o__Staphylococcales; f__Staphylococcaceae; g__Staphylococcus; s__Staphylococcus_aureus	0.155	0.155	0.155	0.155
+d__Bacteria; p__Firmicutes; c__Bacilli; o__Lactobacillales; f__Listeriaceae; g__Listeria; s__Listeria_monocytogenes	0.141	0.141	0.141	0.141
+d__Bacteria; p__Firmicutes; c__Bacilli; o__Bacillales; f__Bacillaceae; g__Bacillus; s__Bacillus_subtilis	0.174	0.174	0.174	0.174
+d__Eukaryota; p__Ascomycota; c__Saccharomycetes; o__Saccharomycetales; f__Saccharomycetaceae; g__Saccharomyces; s__Saccharomyces_cerevisiae	0.093	0.093	0.093	0.093
+d__Eukaryota; p__Basidiomycota; c__Tremellomycetes; o__Tremellales; f__Cryptococcaceae; g__Cryptococcus; s__Cryptococcus_gattii	0.093	0.093	0.093	0.093

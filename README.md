@@ -1,5 +1,9 @@
 # Gut-microbiota-of-buzzard-nestlings
 
+Data and scripts for the manuscript: **Early-life factors shaping the gut microbiota of buzzard nestlings**
+
+
+## Abstract
 
 **Background**: Exploring the dynamics of gut microbiome colonisation during early-life stages is important for understanding the potential impact of microbes on host development and fitness. Evidence from model organisms suggests a crucial early-life phase when shifts in gut microbiota can lead to immune dysregulation and reduced host condition. However, our understanding of gut microbiota colonisation in long-lived vertebrates, especially during early development, remains limited. We therefore used a wild population of common buzzard nestlings (_Buteo buteo_) to investigate connections between the early-life gut microbiota colonisation, environmental and host factors.
 

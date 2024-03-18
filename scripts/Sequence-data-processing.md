@@ -76,8 +76,6 @@
   * [24.2. Summary of final reads per sample](#242-summary-of-final-reads-per-sample)
   * [24.2. Sequence length statistics](#242-sequence-length-statistics)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 
 
 ## A) 16s rRNA sequence data processing

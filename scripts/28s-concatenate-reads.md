@@ -1,6 +1,35 @@
 # Concatenate 28S pipeline
 
 
+- [1. Load libraries](#1-load-libraries)
+- [2. Define path to fastq files](#2-define-path-to-fastq-files)
+- [3. Generate matched lists of the forward and reverse read files](#3-generate-matched-lists-of-the-forward-and-reverse-read-files)
+- [4. Identify Primers](#4-identify-primers)
+- [5. Verify the presence and orientation of the primers in the data](#5-verify-the-presence-and-orientation-of-the-primers-in-the-data)
+  * [5.1 Create all orientantions of the primers](#51-create-all-orientantions-of-the-primers)
+  * [5.1.1 Create all orientations of the input sequence](#511-create-all-orientations-of-the-input-sequence)
+  * [5.2. Count the number of times the primers appear in the forward and reverse reads](#52-count-the-number-of-times-the-primers-appear-in-the-forward-and-reverse-reads)
+- [5.3. Remove primers](#53-remove-primers)
+    + [5.3.1 Call cutadapt in R-](#531-call-cutadapt-in-r-)
+    + [5.3.2 Ceate output filenames for the cutadapt-ed files. Define the parameters of cutadapt](#532-ceate-output-filenames-for-the-cutadapt-ed-files-define-the-parameters-of-cutadapt)
+    + [5.3.3 Cutadapt parameters](#533-cutadapt-parameters)
+    + [5.3.4 Run cutadapt without filtering Ns](#534-run-cutadapt-without-filtering-ns)
+    + [5.3.5 Sanity check. Look for primers in cutadapt-ed files (should be 0)](#535-sanity-check-look-for-primers-in-cutadapt-ed-files--should-be-0-)
+- [6. DADA2 PIPELINE](#6-dada2-pipeline)
+    + [1.0 Read in the names of the cutadapt-ed FASTQ](#10-read-in-the-names-of-the-cutadapt-ed-fastq)
+    + [2.0 Inspect read quality profiles](#20-inspect-read-quality-profiles)
+    + [3.0 Filter and trim](#30-filter-and-trim)
+    + [4.0  Learn error rates](#40--learn-error-rates)
+    + [5.0 Plot error rates](#50-plot-error-rates)
+    + [6.0 Settings for trimming and merging](#60-settings-for-trimming-and-merging)
+    + [7.0 Construct sequence (ASV) table](#70-construct-sequence--asv--table)
+    + [8.0 Remove chimeras](#80-remove-chimeras)
+    + [9.0 Last checks: track reads throughout the DADA2 pipeline](#90-last-checks--track-reads-throughout-the-dada2-pipeline)
+    + [10. Write results to tsv file](#10-write-results-to-tsv-file)
+- [7.0 Importing sequences to qiime2 for taxonomy assignment](#70-importing-sequences-to-qiime2-for-taxonomy-assignment)
+
+
+
 
 ## 1. Load libraries
 ```R
@@ -64,23 +93,7 @@ FWD.orients
 REV.orients
 ```
 
-
-
-### 5.2. “Pre-filter” the sequences just to remove those with Ns, but perform no other filtering (DID NOT DO THIS)
-
-```R
-#The presence of ambiguous bases (Ns) in the sequencing reads makes accurate mapping of short primer sequences difficult
-
-fnFs.filtN <- file.path(path_seqs, "filtN", basename(fnFs)) # Put N-filterd files in 28S_filtN/ subdirectory
-
-fnRs.filtN <- file.path(path_seqs, "filtN", basename(fnRs))
-
-filterAndTrim(fnFs, fnFs.filtN, fnRs, fnRs.filtN, maxN = 0, multithread = TRUE)
-```
-
-
-
-### 5.3. Count the number of times the primers appear in the forward and reverse reads
+### 5.2. Count the number of times the primers appear in the forward and reverse reads
 
 ```R
 #Considering all possible primer orientations. Identifying and counting the primers on one set of paired end FASTQ files is sufficient, #assuming all the files were created using the same library preparation, so we’ll just process the first sample.
@@ -108,11 +121,11 @@ rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs[[20]]), # not
 
 
 
-## 5.4. Remove primers
+## 5.3. Remove primers
 
 
 
-#### 5.4.1 Call cutadapt in R-
+#### 5.3.1 Call cutadapt in R-
 
 ```R
 cutadapt <- "/homes/hugoeira/.local/bin/cutadapt" # CHANGE to cutadapt path 
@@ -121,7 +134,7 @@ system2(cutadapt, args = "--version") # Run shell commands from R
 
 
 
-#### 5.4.2 Ceate output filenames for the cutadapt-ed files. Define the parameters of cutadapt
+#### 5.3.2 Ceate output filenames for the cutadapt-ed files. Define the parameters of cutadapt
 
 ```R
 #Create output files
@@ -134,7 +147,7 @@ fnRs.cut <- file.path(path.cut, basename(fnRs))
 
 
 
-#### 5.4.3 Cutadapt parameters
+#### 5.3.3 Cutadapt parameters
 
 ```R
 FWD.RC <- dada2:::rc(FWD)
@@ -151,7 +164,7 @@ R2.flags <- paste("-G", REV, "-A", FWD.RC)
 
 
 
-#### 5.4.4 Run cutadapt without filtering Ns
+#### 5.3.4 Run cutadapt without filtering Ns
 ```R
 for(i in seq_along(fnFs)) {
   system2(cutadapt, args = c(R1.flags, R2.flags, "-n", 2,"-m 50", "--match-read-wildcards", "--discard-untrimmed", # -n 2 required to remove FWD and REV from reads
@@ -163,7 +176,7 @@ for(i in seq_along(fnFs)) {
 
 
 
-#### 5.4.5 Sanity check. Look for primers in cutadapt-ed files (should be 0)
+#### 5.3.5 Sanity check. Look for primers in cutadapt-ed files (should be 0)
 ```R
 rbind(FWD.ForwardReads = sapply(FWD.orients, primerHits, fn = fnFs.cut[[20]]), 
       FWD.ReverseReads = sapply(FWD.orients, primerHits, fn = fnRs.cut[[20]]), 

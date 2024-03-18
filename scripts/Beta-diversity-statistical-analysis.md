@@ -1,7 +1,40 @@
 # Beta diversity statistical analysis
 
-
 Based on the workflow described here  https://github.com/nuorenarra/Analysing-dyadic-data-with-brms 
+
+- [A) 16S rRNA beta diversity statistical analysis](#a--16s-rrna-beta-diversity-statistical-analysis)
+- [1. Bray-Curtis dissimilarities](#1-bray-curtis-dissimilarities)
+  * [1.1 Scale predictors between 0-1](#11-scale-predictors-between-0-1)
+  * [1.2 Model Bray-Curtis](#12-model-bray-curtis)
+  * [1.3 Model Diagnostics](#13-model-diagnostics)
+    + [1.3.1 Compare distribution of response variable to distributions of predicted response variable values](#131-compare-distribution-of-response-variable-to-distributions-of-predicted-response-variable-values)
+  * [1.5 Model Summary](#15-model-summary)
+  * [1.4 Plot model posterior and credible intervals](#14-plot-model-posterior-and-credible-intervals)
+  * [1.5 Plot model effects](#15-plot-model-effects)
+- [2. Weighted UniFrac distances](#2-weighted-unifrac-distances)
+  * [2.1 Model WU distances](#21-model-wu-distances)
+  * [1.3 Model Diagnostics](#13-model-diagnostics-1)
+    + [1.3.1 Compare distribution of response variable to distributions of predicted response variable values](#131-compare-distribution-of-response-variable-to-distributions-of-predicted-response-variable-values-1)
+  * [1.5 Model Summary](#15-model-summary-1)
+  * [1.4 Plot model posterior and credible intervals](#14-plot-model-posterior-and-credible-intervals-1)
+  * [1.5 Plot model effects](#15-plot-model-effects-1)
+- [B) 28S rRNA beta diversity statistical analysis](#b--28s-rrna-beta-diversity-statistical-analysis)
+- [1. Bray-Curtis dissimilarities](#1-bray-curtis-dissimilarities-1)
+  * [1.1. Scale predictors between 0-1](#11-scale-predictors-between-0-1)
+  * [1.2. Model Bray-Curtis](#12-model-bray-curtis)
+  * [1.3. Model Diagnostics](#13-model-diagnostics)
+    + [1.3.1. Compare distribution of response variable to distributions of predicted response variable values](#131-compare-distribution-of-response-variable-to-distributions-of-predicted-response-variable-values)
+  * [1.4. Model Summary](#14-model-summary)
+  * [1.5. Plot model posterior and credible intervals](#15-plot-model-posterior-and-credible-intervals)
+  * [1.6. Plot model effects](#16-plot-model-effects)
+- [2. Weighted UniFrac distances](#2-weighted-unifrac-distances-1)
+  * [2.1. Scale predictors between 0-1](#21-scale-predictors-between-0-1)
+  * [2.2. Model WU distances](#22-model-wu-distances)
+  * [2.3. Model Diagnostics](#23-model-diagnostics)
+    + [2.3.1. Compare distribution of response variable to distributions of predicted response variable values](#231-compare-distribution-of-response-variable-to-distributions-of-predicted-response-variable-values)
+  * [2.4. Model Summary](#24-model-summary)
+  * [2.5. Plot model posterior and credible intervals](#25-plot-model-posterior-and-credible-intervals)
+  * [2.6. Plot model effects](#26-plot-model-effects)
 
 
 ## A) 16S rRNA beta diversity statistical analysis

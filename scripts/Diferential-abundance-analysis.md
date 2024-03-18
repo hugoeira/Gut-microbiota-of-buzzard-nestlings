@@ -31,7 +31,6 @@ Pipeline adapted from https://bioconductor.org/packages/release/bioc/vignettes/A
     + [3.3 Filter ASV sequences from a biom table in Qiime2](#33-filter-asv-sequences-from-a-biom-table-in-qiime2-1)
   * [4. Functional prediction with picrust2](#4-functional-prediction-with-picrust2-1)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 

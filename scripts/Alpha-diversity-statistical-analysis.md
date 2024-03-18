@@ -3,6 +3,53 @@
 
 ## A) 16S rRNA alpha diversity statistical analysis
 
+- [A) 16S rRNA alpha diversity statistical analysis](#a--16s-rrna-alpha-diversity-statistical-analysis)
+  * [1. Shannon diversity Index](#1-shannon-diversity-index)
+    + [1.1 Check correlation between variables](#11-check-correlation-between-variables)
+    + [1.2 Model Shannon](#12-model-shannon)
+    + [1.3 Check Normality](#13-check-normality)
+    + [1.4  Model Diagnostics](#14--model-diagnostics)
+    + [1.5 Model Summary](#15-model-summary)
+    + [1.6 Significance values](#16-significance-values)
+    + [1.7 Marginal and conditional R-squared](#17-marginal-and-conditional-r-squared)
+    + [1.8 Plot model effects](#18-plot-model-effects)
+    + [1.9 Significance of random effects](#19-significance-of-random-effects)
+  * [Faith phylogenetic diversity](#faith-phylogenetic-diversity)
+    + [2.1 Log transform Faith](#21-log-transform-faith)
+    + [2.2 Check correlation between variables](#22-check-correlation-between-variables)
+    + [2.3 Model Faith PD](#23-model-faith-pd)
+    + [2.4 Check Normality](#24-check-normality)
+    + [2.5 Model Diagnostics](#25-model-diagnostics)
+    + [2.6 Model Summary](#26-model-summary)
+    + [2.7 Significance values](#27-significance-values)
+    + [2.8 Marginal and Conditional R-squared](#28-marginal-and-conditional-r-squared)
+    + [2.9 Plot model effects](#29-plot-model-effects)
+    + [2.10 Significance of random effects](#210-significance-of-random-effects)
+- [B) 28S rRNA alpha diversity statistical analysis](#b--28s-rrna-alpha-diversity-statistical-analysis)
+  * [1. Shannon diversity Index](#1-shannon-diversity-index-1)
+    + [1.1 Check correlation between variables](#11-check-correlation-between-variables-1)
+    + [1.2. Transform Shannon](#12-transform-shannon)
+    + [1.3. Model Faith PD](#13-model-faith-pd)
+    + [1.4. Check Normality](#14-check-normality)
+    + [1.5. Model Diagnostics](#15-model-diagnostics)
+    + [1.6. Model Summary](#16-model-summary)
+    + [1.7. Significance values](#17-significance-values)
+    + [1.8. Marginal and conditional R-squared](#18-marginal-and-conditional-r-squared)
+    + [1.9. Plot model effects](#19-plot-model-effects)
+    + [1.10.  Significance of random effects](#110--significance-of-random-effects)
+  * [2. Faith phylogenetic diversity](#2-faith-phylogenetic-diversity)
+    + [2.1 Check correlation between variables](#21-check-correlation-between-variables)
+    + [2.2. Log transform Faith](#22-log-transform-faith)
+    + [2.3. Model Faith PD](#23-model-faith-pd)
+    + [2.4. Check Normality](#24-check-normality)
+    + [2.5. Model Diagnostics](#25-model-diagnostics)
+    + [2.6. Model Summary](#26-model-summary)
+    + [2.7. Significance values](#27-significance-values)
+      - [2.8.1. Multiple comparison test for "Habitat"](#281-multiple-comparison-test-for--habitat-)
+    + [2.9. Marginal and Conditional R-squared](#29-marginal-and-conditional-r-squared)
+    + [2.10. Plot model effects](#210-plot-model-effects)
+    + [2.11.  Significance of random effects](#211--significance-of-random-effects)
+
 
 ### 1. Shannon diversity Index
 
@@ -31,10 +78,23 @@ metadata$std_age <- scale(metadata$age_days) # scale age values
 
 saveRDS(metadata,"16S_metadata.rds")
 ```
+#### 1.1 Check correlation between variables
+
+```R
+#check correlation between variables from the model
+test_cor_data <- metadata[, c("habitat", "rank", "year", "lbinom", "sex", "std_age", "std_bci_two", "shannon_entropy")]
+
+correl <- correlation(test_cor_data, include_factors = TRUE)
+correl <- cor_sort(as.matrix(correl)) # as matrix
+
+#Plot matrix
+corr_matrix <- visualisation_recipe(correl)
+plot(corr_matrix)
+```
+![](/pics/16s-CORR_shannon.svg)
 
 
-
-#### 1.1 Model Shannon
+#### 1.2 Model Shannon
 
 ```R
 model_shannon <- lmer(shannon_entropy ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1|nest/ring_number), data = metadata)
@@ -42,7 +102,7 @@ model_shannon <- lmer(shannon_entropy ~ std_age + std_bci + rank + sex + year + 
 
 
 
-#### 1.2 Check Normality
+#### 1.3 Check Normality
 
 ```R
 > check_normality(model_shannon)
@@ -51,7 +111,7 @@ OK: residuals appear as normally distributed (p = 0.394).
 
 
 
-#### 1.3  Model Diagnostics
+#### 1.4  Model Diagnostics
 
 ```R
 check_model(model_shannon)
@@ -61,7 +121,7 @@ check_model(model_shannon)
 
 
 
-#### 1.4 Model Summary
+#### 1.5 Model Summary
 
 ```R
 > summary(model_shannon_final)
@@ -115,7 +175,7 @@ boundary (singular) fit: see help('isSingular')
 
 
 
-#### 1.5 Significance values
+#### 1.6 Significance values
 
 ```R
 > Anova(model_shannon)
@@ -137,7 +197,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 1.6 Marginal and conditional R-squared
+#### 1.7 Marginal and conditional R-squared
 
 ```R
  r.squaredGLMM(model_shannon)
@@ -147,7 +207,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 1.7 Plot model effects
+#### 1.8 Plot model effects
 
 ```R
 plot(allEffects(model_shannon))
@@ -159,77 +219,26 @@ plot(allEffects(model_shannon))
 
 
 
-#### 1.8 Repeatability Analysis
+#### 1.9 Significance of random effects
 
 ```R
-> rpts <- rpt(shannon_entropy ~ std_age + std_bci + rank + sex  + year + habitat + (1|nest) + (1|ring_number), 
-            grname = c("nest", "ring_number"), data = metadata, 
-            datatype = "Gaussian",adjusted = TRUE,
-            nboot = 1000, npermut = 1000)
+>ranova(model_shannon)
+ANOVA-like table for random-effects: Single term deletions
 
-> summary(rpts)
-
-
-
-Repeatability estimation using the lmm method
-
-Call = rpt(formula = shannon_entropy ~ std_age + std_bci_two + rank + sex + year + habitat + (1 | nest) + (1 | ring_number), grname = c("nest", "ring_number"), data = metadata, datatype = "Gaussian", nboot = 1000, npermut = 1000, adjusted = TRUE)
-
-Data: 228 observations
-----------------------------------------
-
-nest (54 groups)
-
-Repeatability estimation overview: 
-      R      SE       2.5%    97.5%   P_permut   LRT_P
-  0.109    0.0618      0      0.224    0.017     0.028
-
-Bootstrapping and Permutation test: 
-           N   Mean     Median     2.5%   97.5%
-boot     1000 0.0940   9.14e-02      0   0.2237
-permut   1000 0.0156   1.12e-12      0   0.0932
-
-Likelihood ratio test: 
-logLik full model = -239.6265
-logLik red. model = -241.4516
-D  = 3.65, df = 1, P = 0.028
-
-----------------------------------------
-
-
-ring_number (117 groups)
-
-Repeatability estimation overview: 
-      R     SE        2.5%   97.5%     P_permut    LRT_P
-      0    0.0633      0     0.219        1        0.5
-
-Bootstrapping and Permutation test: 
-            N     Mean    Median      2.5%    97.5%
-boot     1000   0.0430   1.13e-08      0      0.219
-permut   1000   0.0347   1.69e-11      0      0.175
-
-Likelihood ratio test: 
-logLik full model = -239.6265
-logLik red. model = -239.6265
-D  = 2.27e-13, df = 1, P = 0.5
-
-----------------------------------------
+Model:
+shannon_entropy ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1 | ring_number:nest) + (1 | nest)
+                       npar  logLik    AIC    LRT Df Pr(>Chisq)  
+<none>                   14 -237.86 503.71                       
+(1 | ring_number:nest)   13 -237.86 501.71 0.0000  1    1.00000  
+(1 | nest)               13 -239.56 505.12 3.4089  1    0.06485 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 ```
 
-
-
-```R
-plot(rpts, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
-plot(rpts, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
-```
-
-![](/pics/16s-shannon-repeatability-nest.svg)
-
-![shannon-repeatability-ID](/pics/16s-shannon-repeatability-ID.svg)
 
 ### Faith phylogenetic diversity
 
-#### 2. Log transform Faith 
+#### 2.1 Log transform Faith 
 
 (model residuals not normal distributed)
 
@@ -243,17 +252,31 @@ Warning: Non-normality of residuals detected (p = 0.003).
 metadata$log_faith <- log10(metadata$faith_pd)
 ```
 
+#### 2.2 Check correlation between variables
+
+```R
+#check correlation between variables from the model
+test_cor_data <- metadata[, c("habitat", "rank", "year", "lbinom", "sex", "std_age", "std_bci_two", "faith_pd")]
+
+correl <- correlation(test_cor_data, include_factors = TRUE)
+correl <- cor_sort(as.matrix(correl)) # as matrix
+
+#Plot matrix
+corr_matrix <- visualisation_recipe(correl)
+plot(corr_matrix)
+```
+
+![](/pics/16s-CORR_faith.svg)
 
 
-#### 2.1 Model Faith PD
+#### 2.3 Model Faith PD
 
 ```R
 model_faith <- lmer(log_faith ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1|nest/ring_number), data = metadata)
 ```
 
 
-
-#### 2.2 Check Normality
+#### 2.4 Check Normality
 
 ```R
 > check_normality(model_faith)
@@ -262,7 +285,7 @@ OK: residuals appear as normally distributed (p = 0.081).
 
 
 
-#### 2.3 Model Diagnostics
+#### 2.5 Model Diagnostics
 
 ```R
 check_model(model_faith)
@@ -274,7 +297,7 @@ check_model(model_faith)
 
 
 
-#### 2.4 Model Summary
+#### 2.6 Model Summary
 
 ```R
 > summary(model_faith)
@@ -328,7 +351,7 @@ boundary (singular) fit: see help('isSingular')
 
 
 
-#### 2.5 Significance values
+#### 2.7 Significance values
 
 ```R
 > Anova(model_faith)
@@ -349,7 +372,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 2.6 Marginal and Conditional R-squared
+#### 2.8 Marginal and Conditional R-squared
 
 ```R
 > r.squaredGLMM(model_faith)
@@ -359,7 +382,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 2.7 Plot model effects
+#### 2.9 Plot model effects
 
 ```
 plot(allEffects(model_faith))
@@ -369,77 +392,20 @@ plot(allEffects(model_faith))
 
 
 
-#### 2.8 Repeatability Analysis
+#### 2.10 Significance of random effects
 
 ```R
-> rpts2 <- rpt(log_faith ~ std_age + std_bci + rank + sex  + year + habitat + (1|nest) + (1|ring_number), 
-            grname = c("nest", "ring_number"), data = metadata, 
-            datatype = "Gaussian",adjusted = TRUE,
-            nboot = 1000, npermut = 1000)
+> ranova(model_faith)
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
 
-> summary(rpts2)
-
-Repeatability estimation using the lmm method
-
-Call = rpt(formula = log_faith ~ std_age + std_bci + rank + sex + year + habitat + (1 | nest) + (1 | ring_number), grname = c("nest", "ring_number"), data = metadata, datatype = "Gaussian", nboot = 1000, npermut = 1000, adjusted = TRUE)
-
-Data: 228 observations
-----------------------------------------
-
-nest (54 groups)
-
-Repeatability estimation overview: 
-      R     SE      2.5%   97.5%    P_permut   LRT_P
- 0.0385   0.046      0    0.158       0.17     0.222
-
-Bootstrapping and Permutation test: 
-            N     Mean     Median      2.5%      97.5%
-boot     1000   0.0404    2.57e-02      0       0.1575
-permut   1000   0.0167    2.04e-11      0       0.0987
-
-Likelihood ratio test: 
-logLik full model = 117.2883
-logLik red. model = 116.9959
-D  = 0.585, df = 1, P = 0.222
-
-----------------------------------------
-
-
-ring_number (117 groups)
-
-Repeatability estimation overview: 
-      R     SE       2.5%    97.5%    P_permut  LRT_P
-      0   0.0551      0      0.188        1      0.5
-
-Bootstrapping and Permutation test: 
-            N   Mean   Median   2.5%  97.5%
-boot     1000 0.0350 3.76e-11      0  0.188
-permut   1000 0.0329 1.42e-12      0  0.192
-
-Likelihood ratio test: 
-logLik full model = 117.2883
-logLik red. model = 117.2883
-D  = 2.27e-13, df = 1, P = 0.5
-
-----------------------------------------
+Model:
+log_faith ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1 | ring_number:nest) + (1 | nest)
+                       npar logLik     AIC     LRT Df Pr(>Chisq)
+<none>                   14 112.74 -197.49                      
+(1 | ring_number:nest)   13 112.74 -199.49 0.00000  1     1.0000
+(1 | nest)               13 112.45 -198.91 0.58057  1     0.4461
 ```
-
-
-
-```R
-plot(rpts2, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
-plot(rpts2, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
-```
-
-
-
-
-
-![](/pics/16s-faith-repeatability-nest.svg)
-
-![faith-repeatability-ID](/pics/16s-faith-repeatability-ID.svg)
-
-------
 
 
 
@@ -476,8 +442,25 @@ saveRDS(metadata,"28S_metadata.rds")
 ```
 
 
+#### 1.1 Check correlation between variables
 
-#### 1.1. Transform Shannon 
+```R
+#check correlation between variables from the model
+test_cor_data <- metadata[, c("habitat", "rank", "year", "lbinom", "sex", "std_age", "std_bci_two", "shannon_entropy")]
+
+correl <- correlation(test_cor_data, include_factors = TRUE)
+correl <- cor_sort(as.matrix(correl)) # as matrix
+
+#Plot matrix
+corr_matrix <- visualisation_recipe(correl)
+plot(corr_matrix)
+```
+
+![](/pics/28s-CORR_shannon.svg)
+
+
+
+#### 1.2. Transform Shannon 
 
 ```R
 > model_shannon <- lmer(shannon_entropy ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1|nest/ring_number), data = metadata)
@@ -494,7 +477,7 @@ metadata$log_shannon <- -metadata$log_shannon # change directions of relatioship
 
 
 
-#### 1.2. Model Faith PD
+#### 1.3. Model Faith PD
 
 ```R
 model_shannon <- lmer(log_shannon ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1|nest/ring_number), data = metadata)
@@ -502,7 +485,7 @@ model_shannon <- lmer(log_shannon ~ std_age + std_bci + rank + sex + year + habi
 
 
 
-#### 1.3. Check Normality
+#### 1.4. Check Normality
 
 ```R
 > check_normality(model_shannon_final_prev)
@@ -511,7 +494,7 @@ Warning: Non-normality of residuals detected (p = 0.046). # residuals still not 
 
 
 
-#### 1.4. Model Diagnostics
+#### 1.5. Model Diagnostics
 
 ```R
 check_model(model_shannon)# normality of residuals identified by visual inspection
@@ -521,7 +504,7 @@ check_model(model_shannon)# normality of residuals identified by visual inspecti
 
 
 
-#### 1.5. Model Summary
+#### 1.6. Model Summary
 
 ```R
 > summary(model_shannon)
@@ -572,7 +555,7 @@ lbinom1     -0.504 -0.398 -0.024 -0.099  0.032 -0.120 -0.105 -0.079 -0.070  0.10
 
 
 
-#### 1.6. Significance values
+#### 1.7. Significance values
 
 ```R
 > Anova(model_shannon)
@@ -593,7 +576,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 1.7. Marginal and conditional R-squared
+#### 1.8. Marginal and conditional R-squared
 
 ```R
 > r.squaredGLMM(model_shannon)
@@ -603,7 +586,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-#### 1.8. Plot model effects
+#### 1.9. Plot model effects
 
 ```R
 plot(allEffects(model_shannon))
@@ -613,82 +596,44 @@ plot(allEffects(model_shannon))
 
 
 
-#### 1.9. Repeatability Analysis
+#### 1.10.  Significance of random effects
 
 ```R
-> rpts <- rpt(shannon_entropy ~ std_age + std_bci + rank + sex  + year + habitat + (1|nest) + (1|ring_number), 
-            grname = c("nest", "ring_number"), data = metadata, 
-            datatype = "Gaussian",adjusted = TRUE,
-            nboot = 1000, npermut = 1000)
+> ranova(model_shannon)
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
 
-> summary(rpts)
-
-Repeatability estimation using the lmm method
-
-Call = rpt(formula = log_shannon ~ std_age + std_bci + rank + sex + year + habitat + (1 | nest) + (1 | ring_number), grname = c("nest", "ring_number"), data = metadata, datatype = "Gaussian", nboot = 1000, npermut = 1000, adjusted = TRUE)
-
-Data: 179 observations
-----------------------------------------
-
-nest (54 groups)
-
-Repeatability estimation overview: 
-      R     SE      2.5%    97.5%   P_permut   LRT_P
- 0.0701   0.0643     0      0.217    0.108     0.18
-
-Bootstrapping and Permutation test: 
-            N     Mean     Median   2.5%   97.5%
-boot     1000   0.0634   5.07e-02    0     0.217
-permut   1000   0.0210   6.95e-12    0     0.123
-
-Likelihood ratio test: 
-logLik full model = 16.23022
-logLik red. model = 15.81233
-D  = 0.836, df = 1, P = 0.18
-
-----------------------------------------
-
-
-ring_number (109 groups)
-
-Repeatability estimation overview: 
-      R       SE      2.5%   97.5%   P_permut   LRT_P
-      0     0.0745     0     0.243       1        1
-
-Bootstrapping and Permutation test: 
-            N   Mean      Median     2.5%  97.5%
-boot     1000   0.0486   3.10e-11     0    0.243
-permut   1000   0.0396   1.42e-12     0    0.233
-
-Likelihood ratio test: 
-logLik full model = 16.23022
-logLik red. model = 16.23022
-D  = -1.51e-12, df = 1, P = 1
-
-----------------------------------------
-
-
-
+Model:
+log_shannon ~ std_age + std_bci + sex + rank + habitat + year + lbinom + (1 | ring_number:nest) + (1 | nest)
+                       npar logLik      AIC     LRT Df Pr(>Chisq)
+<none>                   14 14.434 -0.86813                      
+(1 | ring_number:nest)   13 14.434 -2.86813 0.00000  1     1.0000
+(1 | nest)               13 14.145 -2.28934 0.57879  1     0.4468
 ```
 
-
-
-```R
-plot(rpts, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
-plot(rpts, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
-```
-
-![shannon-repeatability-nest](/pics/28s-shannon-repeatability-nest.svg)
-
-![shannon-repeatability-ID](/pics/28s-shannon-repeatability-ID.svg)
 
 
 
 ### 2. Faith phylogenetic diversity
 
+#### 2.1 Check correlation between variables
+
+```R
+#check correlation between variables from the model
+test_cor_data <- metadata[, c("habitat", "rank", "year", "lbinom", "sex", "std_age", "std_bci_two", "faith_pd")]
+
+correl <- correlation(test_cor_data, include_factors = TRUE)
+correl <- cor_sort(as.matrix(correl)) # as matrix
+
+#Plot matrix
+corr_matrix <- visualisation_recipe(correl)
+plot(corr_matrix)
+```
+
+![](/pics/28s-CORR_faith.svg)
 
 
-#### 2.1. Log transform Faith 
+#### 2.2. Log transform Faith 
 
 (model residuals not normal distributed)
 
@@ -704,7 +649,7 @@ metadata$log_faith <- log10(metadata$faith_pd)
 
 
 
-#### 2.2. Model Faith PD
+#### 2.3. Model Faith PD
 
 ```R
 model_faith <- lmer(log_faith ~ std_age + std_bci + rank + sex + year + habitat + lbinom + (1|nest/ring_number), data = metadata)
@@ -712,7 +657,7 @@ model_faith <- lmer(log_faith ~ std_age + std_bci + rank + sex + year + habitat 
 
 
 
-#### 2.3. Check Normality
+#### 2.4. Check Normality
 
 ```R
 > check_normality(model_faith)
@@ -721,7 +666,7 @@ OK: residuals appear as normally distributed (p = 0.661).
 
 
 
-#### 2.4. Model Diagnostics
+#### 2.5. Model Diagnostics
 
 ```R
 check_model(model_faith)
@@ -731,7 +676,7 @@ check_model(model_faith)
 
 
 
-#### 2.5. Model Summary
+#### 2.6. Model Summary
 
 ```R
 > summary(model_faith)
@@ -785,7 +730,7 @@ boundary (singular) fit: see help('isSingular')
 
 
 
-#### 2.6. Significance values
+#### 2.7. Significance values
 
 ```R
 > Anova(model_faith_final)
@@ -806,7 +751,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
-##### 2.6.1. Multiple comparison test for "Habitat"
+##### 2.8.1. Multiple comparison test for "Habitat"
 
 ```R
 > library(multcomp)
@@ -853,7 +798,7 @@ teuto - south == 0  0.12503     0.12123    1.031    0.302
 
 
 
-#### 2.7. Marginal and Conditional R-squared
+#### 2.9. Marginal and Conditional R-squared
 
 ```R
 > r.squaredGLMM(model_faith)
@@ -863,7 +808,7 @@ teuto - south == 0  0.12503     0.12123    1.031    0.302
 
 
 
-#### 2.8. Plot model effects
+#### 2.10. Plot model effects
 
 ```
 plot(allEffects(model_faith))
@@ -873,71 +818,18 @@ plot(allEffects(model_faith))
 
 
 
-#### 2.9. Repeatability Analysis
+#### 2.11.  Significance of random effects
 
 ```R
-> rpts2 <- rpt(log_faith ~ std_age + std_bci + rank + sex  + year + habitat + (1|nest) + (1|ring_number), 
-            grname = c("nest", "ring_number"), data = metadata, 
-            datatype = "Gaussian",adjusted = TRUE,
-            nboot = 1000, npermut = 1000)
+> lmerTest::ranova(model_faith_final_lbinom)
+boundary (singular) fit: see help('isSingular')
+boundary (singular) fit: see help('isSingular')
+ANOVA-like table for random-effects: Single term deletions
 
-> summary(rpts2)
-
-Repeatability estimation using the lmm method
-
-Call = rpt(formula = log_faith ~ std_age + std_bci + rank + sex + year + habitat + (1 | nest) + (1 | ring_number), grname = c("nest", "ring_number"), data = metadata, datatype = "Gaussian", nboot = 1000, npermut = 1000, adjusted = TRUE)
-
-Data: 179 observations
-----------------------------------------
-
-nest (54 groups)
-
-Repeatability estimation overview: 
-      R     SE      2.5%  97.5%   P_permut   LRT_P
-      0   0.0366     0    0.128       1        1
-
-Bootstrapping and Permutation test: 
-            N    Mean    Median    2.5%   97.5%
-boot     1000  0.0204   1.22e-14    0     0.128
-permut   1000  0.0214   1.12e-13    0     0.145
-
-Likelihood ratio test: 
-logLik full model = 6.67855
-logLik red. model = 6.67855
-D  = 0, df = 1, P = 1
-
-----------------------------------------
-
-
-ring_number (109 groups)
-
-Repeatability estimation overview: 
-      R     SE     2.5%  97.5%   P_permut   LRT_P
-      0   0.0653    0    0.237       1        1
-
-Bootstrapping and Permutation test: 
-            N   Mean   Median   2.5%  97.5%
-boot     1000 0.0376 2.40e-13      0  0.237
-permut   1000 0.0321 3.66e-17      0  0.223
-
-Likelihood ratio test: 
-logLik full model = 6.67855
-logLik red. model = 6.67855
-D  = 0, df = 1, P = 1
-
-----------------------------------------
-
+Model:
+log_faith ~ std_age + std_bci_two + rank + sex + year + habitat + lbinom + (1 | ring_number:nest) + (1 | nest)
+                       npar logLik    AIC LRT Df Pr(>Chisq)
+<none>                   14 5.0039 17.992                  
+(1 | ring_number:nest)   13 5.0039 15.992   0  1          1
+(1 | nest)               13 5.0039 15.992   0  1          1
 ```
-
-
-
-```R
-plot(rpts2, grname="nest", type="boot", cex.main=0.8, col = "#ECEFF4")
-plot(rpts2, grname="ring_number", type="boot", cex.main=0.8, col = "#ECEFF4")
-```
-
-
-
-![faith-repeatability-nest](/pics/28s-faith-repeatability-nest.svg)
-
-![faith-repeatability-ID](/pics/28s-faith-repeatability-ID.svg)

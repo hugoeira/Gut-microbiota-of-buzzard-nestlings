@@ -1,8 +1,42 @@
 # Constructing dyadic data from non-independent observations
 
-
-
 Based on the workflow described here  https://github.com/nuorenarra/Analysing-dyadic-data-with-brms 
+
+  * [A) 16S rRNA dyadic data set](#a--16s-rrna-dyadic-data-set)
+  * [1. Cumulative Sum Scaling (CSS) normalization](#1-cumulative-sum-scaling--css--normalization)
+  * [2. Read in the data](#2-read-in-the-data)
+  * [3. Construct matrices to create the dayadic dataset](#3-construct-matrices-to-create-the-dayadic-dataset)
+    + [3.1. Microbiome dissimilarity/distance matrices (BC, WU)](#31-microbiome-dissimilarity-distance-matrices--bc--wu-)
+    + [3.2. SEX similarity matrix](#32-sex-similarity-matrix)
+    + [3.2.1 SEX combination matrix](#321-sex-combination-matrix)
+    + [3.3. HABITAT similarity matrix](#33-habitat-similarity-matrix)
+    + [3.3.1 HABITAT combination-factor matrix](#331-habitat-combination-factor-matrix)
+    + [3.4. NEST similarity matrix](#34-nest-similarity-matrix)
+    + [3.5. YEAR similarity matrices](#35-year-similarity-matrices)
+    + [3.6. INFECTION status combination-factor matrix](#36-infection-status-combination-factor-matrix)
+    + [3.7. AGE diference matrix](#37-age-diference-matrix)
+    + [3.8. BCI diference matrix](#38-bci-diference-matrix)
+  * [4. Unravel matrices into one dyadic data frame](#4-unravel-matrices-into-one-dyadic-data-frame)
+    + [4.1 Build dyadic dataset](#41-build-dyadic-dataset)
+    + [4.2 Add Individual ID and Sample ID combinations to the data set](#42-add-individual-id-and-sample-id-combinations-to-the-data-set)
+- [B) 28S rRNA dyadic data set](#b--28s-rrna-dyadic-data-set)
+  * [1. Cumulative Sum Scaling (CSS) normalization](#1-cumulative-sum-scaling--css--normalization-1)
+  * [2. Read in the data](#2-read-in-the-data-1)
+  * [3. Construct matrices to create the dayadic dataset](#3-construct-matrices-to-create-the-dayadic-dataset-1)
+    + [3.1. Microbiome dissimilarity/distance matrices (BC, WU)](#31-microbiome-dissimilarity-distance-matrices--bc--wu--1)
+    + [3.2. SEX similarity matrix](#32-sex-similarity-matrix-1)
+    + [3.2.1 SEX combination matrix](#321-sex-combination-matrix-1)
+    + [3.3. HABITAT similarity matrix](#33-habitat-similarity-matrix-1)
+    + [3.3.1 HABITAT combination-factor matrix](#331-habitat-combination-factor-matrix-1)
+    + [3.4. NEST similarity matrix](#34-nest-similarity-matrix-1)
+    + [3.5. YEAR similarity matrices](#35-year-similarity-matrices-1)
+    + [3.6. INFECTION status combination-factor matrix](#36-infection-status-combination-factor-matrix-1)
+    + [3.7. AGE diference matrix](#37-age-diference-matrix-1)
+    + [3.8. BCI diference matrix](#38-bci-diference-matrix-1)
+  * [4. Unravel matrices into one dyadic data frame](#4-unravel-matrices-into-one-dyadic-data-frame-1)
+    + [4.1. Build dyadic dataset](#41-build-dyadic-dataset)
+    + [4.2.  Add Individual ID and Sample ID combinations to the data set](#42--add-individual-id-and-sample-id-combinations-to-the-data-set)
+
 
 
 

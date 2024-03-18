@@ -1,8 +1,37 @@
 # Diferential Abundant Analysis with ANOCOM-BC2
 
-
-
 Pipeline adapted from https://bioconductor.org/packages/release/bioc/vignettes/ANCOMBC/inst/doc/ANCOMBC2.html
+
+
+- [A) DAA 16s rRNA](#a--daa-16s-rrna)
+  * [1. Read in the data](#1-read-in-the-data)
+  * [2. Run ANCOM-BC2](#2-run-ancom-bc2)
+    + [2.1 ANCOM-BC2 at ASV level](#21-ancom-bc2-at-asv-level)
+      - [2.1.1 ANCOM-BC2 primary analysis](#211-ancom-bc2-primary-analysis)
+      - [2.1.2 Sensitivity scores](#212-sensitivity-scores)
+      - [2.2.3 Plot ANCOM-BC2 results](#223-plot-ancom-bc2-results)
+  * [3. Prepare a biom file for functional prediction of the differential abundant genus](#3-prepare-a-biom-file-for-functional-prediction-of-the-differential-abundant-genus)
+    + [3.1 Filter the 9 DAA ASVs](#31-filter-the-9-daa-asvs)
+    + [3.2 Convert the filtered phyloseq object to a biom table](#32-convert-the-filtered-phyloseq-object-to-a-biom-table)
+    + [3.3 Filter ASV sequences from a biom table in Qiime2](#33-filter-asv-sequences-from-a-biom-table-in-qiime2)
+  * [4. Functional prediction with picrust2](#4-functional-prediction-with-picrust2)
+  * [5. DAA of functional prediction (ggpicrust2)](#5-daa-of-functional-prediction--ggpicrust2-)
+    + [5.1 DAA functional prediction Wilcoxon rank test](#51-daa-functional-prediction-wilcoxon-rank-test)
+    + [5.2. DAA functional prediction Welch t test](#52-daa-functional-prediction-welch-t-test)
+- [B) DAA 28s rRNA](#b--daa-28s-rrna)
+  * [1. Read in the data](#1-read-in-the-data-1)
+  * [2. Run ANCOM-BC2](#2-run-ancom-bc2-1)
+    + [2.1 ANCOM-BC2 at ASV level](#21-ancom-bc2-at-asv-level-1)
+      - [2.1.1 ANCOM-BC2 primary analysis](#211-ancom-bc2-primary-analysis-1)
+      - [2.1.2 Sensitivity scores](#212-sensitivity-scores-1)
+      - [2.2.3 Plot ANCOM-BC2 results](#223-plot-ancom-bc2-results-1)
+  * [3. Prepare a biom file for functional prediction of the differential abundant genus](#3-prepare-a-biom-file-for-functional-prediction-of-the-differential-abundant-genus-1)
+    + [3.1 Filter the 2 DAA ASVs](#31-filter-the-2-daa-asvs)
+    + [3.2 Convert the filtered phyloseq object to a biom table](#32-convert-the-filtered-phyloseq-object-to-a-biom-table-1)
+    + [3.3 Filter ASV sequences from a biom table in Qiime2](#33-filter-asv-sequences-from-a-biom-table-in-qiime2-1)
+  * [4. Functional prediction with picrust2](#4-functional-prediction-with-picrust2-1)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 
 

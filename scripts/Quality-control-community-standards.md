@@ -1,6 +1,38 @@
 # Quality control community standards workflow
 
+- [1. Activate Qiime2](#1-activate-qiime2)
+- [2. Import expected taxonomic composition of mock samples](#2-import-expected-taxonomic-composition-of-mock-samples)
+- [2. Get the observed taxonomic composition of mock samples](#2-get-the-observed-taxonomic-composition-of-mock-samples)
+  * [2.1 Import results after decontam pipeline](#21-import-results-after-decontam-pipeline)
+  * [2.2 Subset community standard samples (positive controls)](#22-subset-community-standard-samples--positive-controls-)
+  * [2.3 Go through the filtering steps](#23-go-through-the-filtering-steps)
+  * [2.4  Inspect the taxonomic composition of the community standards (taxa bar plots only for positive controls)](#24--inspect-the-taxonomic-composition-of-the-community-standards--taxa-bar-plots-only-for-positive-controls-)
+- [3. Agglomerate taxa at species level](#3-agglomerate-taxa-at-species-level)
+  * [3.1 Convert sequence counts into relative abundances](#31-convert-sequence-counts-into-relative-abundances)
+- [4. Compare observed and expected taxonomic composition of mock samples](#4-compare-observed-and-expected-taxonomic-composition-of-mock-samples)
+- [5. Feature evaluation results](#5-feature-evaluation-results)
+  * [5.1 Per-level accuracy](#51-per-level-accuracy)
+  * [5.2 False positives: misclassifications](#52-false-positives--misclassifications)
+  * [5.3 False positives: underclassifications](#53-false-positives--underclassifications)
+  * [5.4 False negatives](#54-false-negatives)
+- [B) 28S rRNA workflow](#b--28s-rrna-workflow)
+- [1. Activate Qiime2](#1-activate-qiime2-1)
+- [2. Import expected taxonomic composition of mock samples](#2-import-expected-taxonomic-composition-of-mock-samples-1)
+- [2. Get the observed taxonomic composition of mock samples](#2-get-the-observed-taxonomic-composition-of-mock-samples-1)
+  * [2.1 Import results after decontam pipeline](#21-import-results-after-decontam-pipeline-1)
+  * [2.2 Subset community standard samples (positive controls)](#22-subset-community-standard-samples--positive-controls--1)
+  * [2.3 Go through the filtering steps](#23-go-through-the-filtering-steps-1)
+  * [2.4 Inspect the taxonomic composition of the community standards (taxa bar plots only for positive controls)](#24-inspect-the-taxonomic-composition-of-the-community-standards--taxa-bar-plots-only-for-positive-controls-)
+- [3. Agglomerate taxa at species level](#3-agglomerate-taxa-at-species-level-1)
+  * [3.1 Convert sequence counts into relative abundances](#31-convert-sequence-counts-into-relative-abundances-1)
+- [4. Compare observed and expected taxonomic composition of mock samples](#4-compare-observed-and-expected-taxonomic-composition-of-mock-samples-1)
+- [5. Feature evaluation results](#5-feature-evaluation-results-1)
+  * [5.1 Per-level accuracy](#51-per-level-accuracy-1)
+  * [5.2 False positives: misclassifications](#52-false-positives--misclassifications-1)
+  * [5.3 False positives: underclassifications](#53-false-positives--underclassifications-1)
+  * [5.4 False negatives](#54-false-negatives-1)
 
+    
 
 ## A) 16S rRNA workflow
 

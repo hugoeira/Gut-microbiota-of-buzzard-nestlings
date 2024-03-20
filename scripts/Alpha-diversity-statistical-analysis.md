@@ -1,8 +1,6 @@
 # Alpha diversity statistical analysis
 
 
-## A) 16S rRNA alpha diversity statistical analysis
-
 - [A) 16S rRNA alpha diversity statistical analysis](#a--16s-rrna-alpha-diversity-statistical-analysis)
   * [1. Shannon diversity Index](#1-shannon-diversity-index)
     + [1.1 Check correlation between variables](#11-check-correlation-between-variables)
@@ -50,6 +48,8 @@
     + [2.10. Plot model effects](#210-plot-model-effects)
     + [2.11.  Significance of random effects](#211--significance-of-random-effects)
 
+
+## A) 16S rRNA alpha diversity statistical analysis
 
 ### 1. Shannon diversity Index
 
